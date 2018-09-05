@@ -22,10 +22,9 @@ public class AnotherWidgetProvider extends AppWidgetProvider {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setData(Uri.parse(url));
             PendingIntent pending = PendingIntent.getActivity(context, 0, intent, 0);
-
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_another);
             views.setOnClickPendingIntent(R.id.button, pending);
-            views.setTextViewText(R.id.textView,"Welcome!");
+            views.setTextViewText(R.id.textView, "Welcome!");
             appWidgetManager.updateAppWidget(currentWidgetId, views);
             Toast.makeText(context, "widget added!", Toast.LENGTH_LONG).show();
         }
